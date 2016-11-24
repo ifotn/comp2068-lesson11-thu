@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Games</title>
+
+    <!--bootstrap-->
+    <link rel="stylesheet" href="stylesheets/bootstrap.min.css" />
+    <link rel="stylesheet" href="stylesheets/bootstrap-theme.min.css" />
+</head>
+<body>
+
+<main class="container" ng-app="GameApp" ng-controller="GameController">
+    <h1>Angular Games List</h1>
+
+    <section class="jumbotron">
+        <h2>Add a New Game</h2>
+        <form ng-submit="addGame()">
+            <fieldset class="form-group">
+                <label for="title" class="control-label">Title:</label>
+                <input id="title" name="title" ng-model="title" />
+                <button class="btn btn-success">Add Game</button>
+            </fieldset>
+        </form>
+    </section>
+    <section>
+        <h2>{{ games.length }} Current Games</h2>
+        <ul class="list-group">
+            <li class="list-group-item"
+                ng-repeat="game in games track by $index">
+                <label class="col-sm-4">{{ game }}</label>
+                <button class="btn btn-danger" ng-click="removeGame()">Remove</button>
+            </li>
+        </ul>
+    </section>
+</main>
+
+<!--Angular-->
+<script src="javascripts/angular.min.js"></script>
+
+<!--Custom Angular Controller for Games-->
+<script src="javascripts/games.js"></script>
+</body>
+</html>
